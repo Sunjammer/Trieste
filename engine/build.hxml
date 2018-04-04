@@ -1,0 +1,6 @@
+-cp src
+-cpp bin
+-lib linc_opengl
+-lib linc_glfw
+-lib linc_bass
+-main Main
