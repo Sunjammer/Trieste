@@ -1,31 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RenoiseScriptingTool>
-  <ApiVersion>3.0</ApiVersion>
-  <Version>1.0</Version>
-  
-  <!-- Unique identifier for your tool. The identifier must match the XRNX bundle name -->
-  <!-- without the extension .xrnx. This will be done automatically by Renoise -->
-  <!-- when installing tools -->
-  <!-- The Id should be a string with 3 parts, separated by dots, like org.superduper.tool.--> 
-  <!-- You don't have to use prefixes like com/org and so on, but please try to use -->
-  <!-- something personal, like your name, or your homepage domain or company name in -->
-  <!-- the Id in order to make it as unique as possible. -->
+<RenoiseScriptingTool doc_version="0">
+  <ApiVersion>5</ApiVersion>
+  <AutoUpgraded>true</AutoUpgraded>
   <Id>no.doomsday.Trieste</Id>
-  
-  
-  <!-- The author field is only used in descriptions of the tools, or in error messages  -->
-  <!-- from the script. Providing an email is not necessary, but recommended if you -->
-  <!-- want feedback. -->
+  <Version>1.0</Version>
   <Author>Sunjammer [andreas@doomsday.no]</Author>
-  
-  <!-- Main topic, tag(s) of this tool, like "Pattern Editor, Sample Editor" and so on. -->
-  <!-- Separate multiple categories with commas. -->  
-  <Category>Nightmares</Category>
-
-  <!-- Name of the tool, as visible to the user -->
   <Name>Wretched hackery</Name>
-
-  <!-- Description of the tool as visible to the users -->
+  <Category>Nightmares</Category>
   <Description>Oh dear</Description>
-  
 </RenoiseScriptingTool>
