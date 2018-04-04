@@ -1,7 +1,10 @@
 {
 	"folders": [
 		{
-			"path": "."
+			"path": "engine"
+		},
+		{
+			"path": "renoise"
 		}
 	],
 	"settings": {}

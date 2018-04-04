@@ -1,6 +1,9 @@
 -cp src
 -cpp bin
+-lib hxcpp
+-lib linc_enet
 -lib linc_opengl
 -lib linc_glfw
 -lib linc_bass
+-lib linc_tinyosc
 -main Main
