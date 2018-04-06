@@ -1,8 +1,19 @@
 package;
 import tinyosc.OSC;
 import enet.ENet;
+import opengl.GL.*;
 import glfw.GLFW.*;
 class Main{
+
+    static function setWindowFlags(){
+        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+        glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+        glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+    }
+
+
     static function main(){
         if(ENet.initialize() != 0){
             throw 'ENet init error';
@@ -24,10 +35,19 @@ class Main{
 
         trace("Server listening on 1984");
 
+        var running = true;
+
+        glfwSetErrorCallback(function(error:Int, message:String) {
+            trace("Waaa: "+error+": "+message);
+            running = false;
+        });
+
         glfwInit();
+        setWindowFlags();
         var win = glfwCreateWindow(800, 600, "Test", null, null);
         glfwMakeContextCurrent(win);
-        while(glfwWindowShouldClose(win) == 0){
+        glew.GLEW.init();
+        while(glfwWindowShouldClose(win) == 0 && running){
             eventStatus = ENet.host_service(server, cast event, 50);
             if (eventStatus > 0) {
                 
@@ -57,7 +77,13 @@ class Main{
                 }
             }
             glfwPollEvents();
+
+            glClearColor(1, 0, 0, 1);
+            glClear(GL_COLOR_BUFFER_BIT);
+            glfwSwapBuffers(win);
+
             Sys.sleep(0.016);
         }
+        glfwTerminate();
     }
 }
